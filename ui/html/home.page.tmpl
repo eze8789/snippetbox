@@ -1,0 +1,25 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "body"}}
+    <h2>Latest Snippets</h2>
+    {{if .Snippets}}
+     <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Created</th>
+        </tr>
+        {{range .Snippets}}
+        <tr>
+            <td><a href='/snippet/{{.ID}}'>#{{.ID}}</a></td>
+            <td>{{.Title}}</td>
+            <td>{{hDate .Created}}</td>
+        </tr>
+        {{end}}
+    </table>
+    {{else}}
+        <p>There's nothing to see here... yet!</p>
+    {{end}}
+{{end}}
