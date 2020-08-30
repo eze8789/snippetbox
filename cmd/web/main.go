@@ -36,7 +36,7 @@ func main() {
 	// Mysql connection string
 	connStr := flag.String("dsn", "USERNAME:PASSWORD@/snippetbox?parseTime=true", "MySQL data source name")
 
-	// Flag to mannage session secret key
+	// Flag to manage session secret key
 	secret := flag.String("secret", "SECRET_KEY", "Secret Key")
 	flag.Parse()
 
@@ -49,7 +49,7 @@ func main() {
 		errLog.Fatal(err)
 	}
 
-	// When main function exits db pool connectios are closed
+	// When main function exits db pool connections are closed
 	defer db.Close()
 
 	templateCache, err := newTemplateCache("./ui/html")

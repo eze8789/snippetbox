@@ -58,7 +58,7 @@ func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
 	form := forms.New(r.PostForm)
 	// Manage possible errors of the form data
 	form.Required("title", "content", "expires")
-	form.Lenght("title", 5, 30)
+	form.Length("title", 5, 30)
 	form.PermittedValues("expires", "365", "7", "1")
 	if !form.Valid() {
 		app.renderTemplate(w, r, "create.page.tmpl", &templateData{
@@ -96,7 +96,7 @@ func (app *application) signupUser(w http.ResponseWriter, r *http.Request) {
 	// Manage possible errors of the form data
 	form.Required("name", "email", "password")
 	form.MatchPattern("email", forms.EmailRegExp)
-	form.MinLenght("password", 10)
+	form.MinLength("password", 10)
 	if !form.Valid() {
 		app.renderTemplate(w, r, "signup.page.tmpl", &templateData{
 			Form: form,

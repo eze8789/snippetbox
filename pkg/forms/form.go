@@ -31,7 +31,7 @@ func (f *Form) Required(fields ...string) {
 	}
 }
 
-func (f *Form) Lenght(field string, min, max int) {
+func (f *Form) Length(field string, min, max int) {
 	val := f.Get(field)
 	if val == "" {
 		return
@@ -54,7 +54,7 @@ func (f *Form) PermittedValues(field string, opts ...string) {
 	f.Errors.Add(field, "This field is invalid")
 }
 
-func (f *Form) MinLenght(field string, d int) {
+func (f *Form) MinLength(field string, d int) {
 	value := f.Get(field)
 	if value == "" {
 		return
